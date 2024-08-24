@@ -1,0 +1,539 @@
+[
+    {
+        "id": 1,
+        "name": "Gretel Witch",
+        "user_id": "Haggath",
+        "email": "ghaggath0@imdb.com",
+        "gender": "Female",
+        "contact": 71,
+        "DOB": "11/27/2023",
+        "nationality": "Egypt",
+        "role": "Research Assistant IV",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Technology",
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Milly Shelby",
+        "user_id": "Bonnell",
+        "email": "mbonnell1@sciencedirect.com",
+        "gender": "Female",
+        "contact": 12,
+        "DOB": "5/17/2024",
+        "nationality": "Thailand",
+        "role": "Quality Engineer",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Nial Thorn",
+        "user_id": "Hartwell",
+        "email": "nhartwell2@jimdo.com",
+        "gender": "Bigender",
+        "contact": 53,
+        "DOB": "4/27/2024",
+        "nationality": "Philippines",
+        "role": "Occupational Therapist",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Finance"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Eddy Smith",
+        "user_id": "Gentsch",
+        "email": "egentsch3@wix.com",
+        "gender": "Male",
+        "contact": 22,
+        "DOB": "3/30/2024",
+        "nationality": "China",
+        "role": "Information Systems Manager",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "CEO",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Kathleen Pinketh",
+        "user_id": "Whitebrook",
+        "email": "kwhitebrook4@ed.gov",
+        "gender": "Female",
+        "contact": 4,
+        "DOB": "3/27/2024",
+        "nationality": "China",
+        "role": "VP Accounting",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Orton Carlson",
+        "user_id": "Cameli",
+        "email": "ocameli5@github.io",
+        "gender": "Male",
+        "contact": 69,
+        "DOB": "1/8/2024",
+        "nationality": "Armenia",
+        "role": "Geologist III",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Lesley Swift",
+        "user_id": "Kiddle",
+        "email": "lkiddle6@mysql.com",
+        "gender": "Male",
+        "contact": 58,
+        "DOB": "11/14/2023",
+        "nationality": "Brazil",
+        "role": "Nuclear Power Engineer",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Chico Cyrus",
+        "user_id": "Courvert",
+        "email": "ccourvert7@furl.net",
+        "gender": "Male",
+        "contact": 81,
+        "DOB": "9/6/2023",
+        "nationality": "Morocco",
+        "role": "Accountant IV",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Pavel Jackson",
+        "user_id": "Toderbrugge",
+        "email": "ptoderbrugge8@goodreads.com",
+        "gender": "Agender",
+        "contact": 26,
+        "DOB": "9/26/2023",
+        "nationality": "Portugal",
+        "role": "Account Representative IV",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Tobit Styles",
+        "user_id": "Starrs",
+        "email": "tstarrs9@businessweek.com",
+        "gender": "Male",
+        "contact": 16,
+        "DOB": "2/6/2024",
+        "nationality": "China",
+        "role": "Librarian",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Petrina",
+        "user_id": "Symms",
+        "email": "psymmsa@latimes.com",
+        "gender": "Female",
+        "contact": 48,
+        "DOB": "9/22/2023",
+        "nationality": "Indonesia",
+        "role": "Developer III",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Sadie",
+        "user_id": "Pilipets",
+        "email": "spilipetsb@go.com",
+        "gender": "Female",
+        "contact": 8,
+        "DOB": "11/10/2023",
+        "nationality": "Ukraine",
+        "role": "VP Accounting",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Shawna",
+        "user_id": "Arundel",
+        "email": "sarundelc@netvibes.com",
+        "gender": "Female",
+        "contact": 78,
+        "DOB": "10/28/2023",
+        "nationality": "Norway",
+        "role": "Legal Assistant",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Cookie",
+        "user_id": "Francois",
+        "email": "cfrancoisd@japanpost.jp",
+        "gender": "Female",
+        "contact": 75,
+        "DOB": "9/16/2023",
+        "nationality": "Greece",
+        "role": "Data Coordinator",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Casper",
+        "user_id": "Cleaves",
+        "email": "ccleavese@naver.com",
+        "gender": "Male",
+        "contact": 37,
+        "DOB": "8/5/2024",
+        "nationality": "Syria",
+        "role": "Marketing Assistant",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Annabelle",
+        "user_id": "Eilhersen",
+        "email": "aeilhersenf@un.org",
+        "gender": "Female",
+        "contact": 36,
+        "DOB": "6/10/2024",
+        "nationality": "Brazil",
+        "role": "Clinical Specialist",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Annabelle",
+        "user_id": "Carpmile",
+        "email": "acarpmileg@nature.com",
+        "gender": "Female",
+        "contact": 63,
+        "DOB": "3/16/2024",
+        "nationality": "Poland",
+        "role": "Junior Executive",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Vanessa",
+        "user_id": "Oldmeadow",
+        "email": "voldmeadowh@disqus.com",
+        "gender": "Female",
+        "contact": 13,
+        "DOB": "3/11/2024",
+        "nationality": "Bolivia",
+        "role": "Office Assistant IV",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Tobias",
+        "user_id": "Geldeard",
+        "email": "tgeldeardi@cdc.gov",
+        "gender": "Male",
+        "contact": 62,
+        "DOB": "9/30/2023",
+        "nationality": "Portugal",
+        "role": "Assistant Professor",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Gwyneth",
+        "user_id": "Barrington",
+        "email": "gbarringtonj@senate.gov",
+        "gender": "Female",
+        "contact": 35,
+        "DOB": "11/30/2023",
+        "nationality": "Philippines",
+        "role": "Engineer IV",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Carling",
+        "user_id": "Simao",
+        "email": "csimaok@sina.com.cn",
+        "gender": "Male",
+        "contact": 58,
+        "DOB": "4/26/2024",
+        "nationality": "China",
+        "role": "Graphic Designer",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Wally",
+        "user_id": "Walrond",
+        "email": "wwalrondl@mail.ru",
+        "gender": "Male",
+        "contact": 48,
+        "DOB": "2/10/2024",
+        "nationality": "South Africa",
+        "role": "Quality Control Specialist",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Susanne",
+        "user_id": "Evert",
+        "email": "severtm@istockphoto.com",
+        "gender": "Female",
+        "contact": 59,
+        "DOB": "1/28/2024",
+        "nationality": "Ukraine",
+        "role": "Chemical Engineer",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Coletta",
+        "user_id": "Diable",
+        "email": "cdiablen@wix.com",
+        "gender": "Female",
+        "contact": 99,
+        "DOB": "2/19/2024",
+        "nationality": "Russia",
+        "role": "Systems Administrator IV",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Flora",
+        "user_id": "Emlyn",
+        "email": "femlyno@cornell.edu",
+        "gender": "Female",
+        "contact": 16,
+        "DOB": "2/17/2024",
+        "nationality": "North Korea",
+        "role": "Quality Control Specialist",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Heloise",
+        "user_id": "Tourne",
+        "email": "htournep@ask.com",
+        "gender": "Female",
+        "contact": 48,
+        "DOB": "7/8/2024",
+        "nationality": "Russia",
+        "role": "Help Desk Operator",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Jacquetta",
+        "user_id": "Ellerman",
+        "email": "jellermanq@example.com",
+        "gender": "Female",
+        "contact": 38,
+        "DOB": "6/18/2024",
+        "nationality": "Ukraine",
+        "role": "Environmental Specialist",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Kaine",
+        "user_id": "Morrid",
+        "email": "kmorridr@yolasite.com",
+        "gender": "Male",
+        "contact": 57,
+        "DOB": "6/25/2024",
+        "nationality": "Thailand",
+        "role": "Product Engineer",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Rosalie",
+        "user_id": "Fielden",
+        "email": "rfieldens@disqus.com",
+        "gender": "Female",
+        "contact": 75,
+        "DOB": "1/25/2024",
+        "nationality": "Czech Republic",
+        "role": "Research Nurse",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Sidoney",
+        "user_id": "Lalor",
+        "email": "slalort@ezinearticles.com",
+        "gender": "Female",
+        "contact": 77,
+        "DOB": "7/20/2024",
+        "nationality": "Philippines",
+        "role": "Recruiting Manager",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    }
+]
