@@ -1,7 +1,7 @@
 import React from 'react';
 
-const PersonDetailsModal = ({ isOpen, onClose, person }) => {
-  if (!isOpen || !person) return null;
+const PersonDetailsModal = ({ onClose, person }) => {
+  if (!person) return null;
 
   return (
     <div className="fixed right-0 w-[50%] h-[88%] flex items-center justify-center z-50">

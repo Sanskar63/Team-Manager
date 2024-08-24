@@ -39,6 +39,7 @@ const ReactHookFormWithZod = ({onClose}) => {
 
     const onSubmit = (data) => {
         console.log(data);
+        onClose();
     };
 
     const handleImageChange = (e) => {

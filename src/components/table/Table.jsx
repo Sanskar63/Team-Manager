@@ -28,25 +28,19 @@ export default function BasicTable({ data, columns }) {
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     state: {
-      sorting: sorting,
+      sorting,
       globalFilter: filtering,
-      pagination: pagination,
+      pagination,
     },
     onSortingChange: setSorting,
     onGlobalFilterChange: setFiltering,
     onPaginationChange: setPagination,
   });
 
-  // Related to opening window
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [formWindow, setFormWindow] = useState(false);
 
-  // useEffect(()=>{
-  //   console.log(formWindow);
-  // },[formWindow])
-
-  
   const handleRowClick = (person, e) => {
     if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'IMG') {
       setSelectedPerson(person);
@@ -71,9 +65,14 @@ export default function BasicTable({ data, columns }) {
             className='border border-gray-300 rounded-md px-2 h-[5vh]'
           />
 
-          <img src="filter.png" className='w-8 h-7' alt="" />
+          <button>
+            {/* Filter Logic goes here */}
+            <img src="filter.png" className='w-8 h-7' alt="Filter" />
+          </button>
 
-          <button onClick={()=>setFormWindow(true)} className='font-bold bg-purple-700 px-6 py-2 rounded-md text-white bg-purple'>+ ADD MEMBER</button>
+          <button onClick={() => setFormWindow(true)} className='font-bold bg-purple px-6 py-2 rounded-md text-white'>
+            + ADD MEMBER
+          </button>
         </div>
       </div>
 
@@ -85,19 +84,16 @@ export default function BasicTable({ data, columns }) {
                 <th
                   key={header.id}
                   onClick={header.column.getToggleSortingHandler()}
+                  className="px-3 text-start text-gray-600 cursor-pointer"
                 >
                   {header.isPlaceholder ? null : (
-                    <div className="px-3 text-start text-gray-600 cursor-pointer">
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                      {
-                        { asc: '  🔼', desc: '  🔽' }[
-                          header.column.getIsSorted() ?? null
-                        ]
-                      }
-                    </div>
+                    <>
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                      {{
+                        asc: '  🔼',
+                        desc: '  🔽',
+                      }[header.column.getIsSorted()] || null}
+                    </>
                   )}
                 </th>
               ))}
@@ -121,49 +117,96 @@ export default function BasicTable({ data, columns }) {
         </tbody>
       </table>
 
-      <div className='flex flex-row-reverse items-center gap-2 mt-5'>
+      {/* Pagination */}
+      <div className='flex flex-row justify-between items-center gap-2 mt-5'>
         <button
           className='bg-purple text-white px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%]'
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-          disabled={!table.getCanNextPage()}
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
         >
-          Last page
+          Previous
         </button>
+
+        <div className='flex gap-3'>
+          {table.getPageCount() > 5 ? (
+            <>
+              <button
+                className={`px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%] ${table.getState().pagination.pageIndex === 0
+                  ? 'bg-purple text-white'
+                  : 'bg-gray-200 text-gray-700'
+                  }`}
+                onClick={() => table.setPageIndex(0)}
+              >
+                1
+              </button>
+              {table.getState().pagination.pageIndex > 2 && <span>...</span>}
+              {Array.from({ length: 3 }, (_, i) => {
+                const pageIndex = Math.max(
+                  1,
+                  Math.min(
+                    table.getPageCount() - 4,
+                    table.getState().pagination.pageIndex - 1
+                  )
+                );
+                return (
+                  <button
+                    key={pageIndex + i}
+                    className={`px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%] ${table.getState().pagination.pageIndex === pageIndex + i
+                      ? 'bg-purple text-white'
+                      : 'bg-gray-200 text-gray-700'
+                      }`}
+                    onClick={() => table.setPageIndex(pageIndex + i)}
+                  >
+                    {pageIndex + i + 1}
+                  </button>
+                );
+              })}
+              {table.getState().pagination.pageIndex < table.getPageCount() - 3 && <span>...</span>}
+              <button
+                className={`px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%] ${table.getState().pagination.pageIndex === table.getPageCount() - 1
+                  ? 'bg-purple text-white'
+                  : 'bg-gray-200 text-gray-700'
+                  }`}
+                onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+              >
+                {table.getPageCount()}
+              </button>
+            </>
+          ) : (
+            Array.from({ length: table.getPageCount() }, (_, i) => (
+              <button
+                key={i}
+                className={`px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%] ${table.getState().pagination.pageIndex === i
+                  ? 'bg-purple text-white'
+                  : 'bg-gray-200 text-gray-700'
+                  }`}
+                onClick={() => table.setPageIndex(i)}
+              >
+                {i + 1}
+              </button>
+            ))
+          )}
+        </div>
 
         <button
           className='bg-purple text-white px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%]'
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
-          Next page
-        </button>
-
-        <button
-          className='bg-purple text-white px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%]'
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous page
-        </button>
-
-        <button
-          className='bg-purple text-white px-4 py-2 rounded-lg hover:scale-[102%] duration-150 active:scale-[100%]'
-          onClick={() => table.setPageIndex(0)}
-          disabled={!table.getCanPreviousPage()}
-        >
-          First page
+          Next
         </button>
       </div>
 
-      <PersonDetailsModal
-        isOpen={isOpen}
-        onClose={() => setIsOpen(false)}
-        person={selectedPerson}
-      />
-      {
-        formWindow && <ReactHookFormWithZod onClose={() => setFormWindow(false)} />
-      }
-      
+      {isOpen && (
+        <PersonDetailsModal
+          onClose={() => setIsOpen(false)}
+          person={selectedPerson}
+        />
+      )}
+
+      {formWindow && (
+        <ReactHookFormWithZod onClose={() => setFormWindow(false)} />
+      )}
     </div>
   )
 }

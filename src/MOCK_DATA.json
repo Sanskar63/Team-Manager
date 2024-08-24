@@ -535,5 +535,111 @@
             "Marketing",
             "Finance"
         ]
+    },
+    {
+        "id": 31,
+        "name": "Sidoney Smith",
+        "user_id": "sidoney",
+        "email": "slalort@ezinearticles.com",
+        "gender": "Female",
+        "contact": 7709380583,
+        "DOB": "7/20/2022",
+        "nationality": "Philippines",
+        "role": "Recruiting Manager",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Helen",
+        "user_id": "helen",
+        "email": "slalort@ezinearticles.com",
+        "gender": "Female",
+        "contact": 7798345687,
+        "DOB": "7/20/2024",
+        "nationality": "Philippines",
+        "role": "Recruiting Manager",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Justice",
+        "user_id": "justice",
+        "email": "slalort@ezinearticles.com",
+        "gender": "Female",
+        "contact": 77,
+        "DOB": "7/20/2024",
+        "nationality": "Philippines",
+        "role": "Recruiting Manager",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Selena",
+        "user_id": "selena",
+        "email": "slalort@ezinearticles.com",
+        "gender": "Female",
+        "contact": 77,
+        "DOB": "7/20/2024",
+        "nationality": "Philippines",
+        "role": "Recruiting Manager",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Taylor Lautner",
+        "user_id": "lautner",
+        "email": "slalort@ezinearticles.com",
+        "gender": "Female",
+        "contact": 77,
+        "DOB": "7/20/2024",
+        "nationality": "Philippines",
+        "role": "Recruiting Manager",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Taylor Swift",
+        "user_id": "swift",
+        "email": "slalort@ezinearticles.com",
+        "gender": "Female",
+        "contact": 77,
+        "DOB": "7/20/2024",
+        "nationality": "Philippines",
+        "role": "Backend Developer",
+        "profilePicture": "snowMountain.jpg",
+        "teams":[
+            "Design",
+            "Product",
+            "Marketing",
+            "Finance"
+        ]
     }
 ]
