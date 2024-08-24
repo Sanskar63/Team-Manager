@@ -17,7 +17,7 @@ const formSchema = z.object({
     image: z.any().optional(),
 });
 
-const ReactHookFormWithZod = ({onClose}) => {
+const ReactHookFormWithZod = ({ onClose }) => {
     const {
         register,
         handleSubmit,
@@ -120,13 +120,13 @@ const ReactHookFormWithZod = ({onClose}) => {
                 {/* Role and Status Fields */}
                 <div className="flex justify-center mb-4">
                     <div className="flex flex-col w-[50%]">
-                        <label>Role:</label>
+                        <label>Role</label>
                         <input {...register("role")} placeholder="Role" className="border border-gray-500 border-b-2 border-b-black text-gray-700  rounded px-2 py-1 w-[98%] h-11" />
                         {errors.role && <p className="text-red-500 text-xs mt-1">{errors.role.message}</p>}
                     </div>
 
                     <div className="flex flex-col w-[50%] ">
-                        <label>Status:</label>
+                        <label>Status</label>
                         <select {...register("status")} className="border border-gray-500 border-b-2 border-b-black bg-white text-gray-700 rounded px-2 py-1 w-[98%] h-11">
                             <option value="Active">Active</option>
                             <option value="Not Active">Not Active</option>
@@ -136,6 +136,7 @@ const ReactHookFormWithZod = ({onClose}) => {
                 </div>
 
                 {/* Selected Teams Tags */}
+                <span>Teams</span>
                 <div className=" p-2 pr-6 min-h-11 mb-4 flex flex-wrap gap-3 items-center border border-gray-500 border-b-2 border-b-black rounded relative">
                     {fields.map((field, index) => (
                         <div key={field.id} className="flex items-center text-purple px-3 py-1 border border-gray-300 rounded-lg">
