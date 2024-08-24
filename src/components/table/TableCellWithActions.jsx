@@ -25,12 +25,14 @@ const TableCellWithActions = ({ rowId, handleDelete, handleEdit }) => {
 
   return (
     <>
-      <div className="flex justify-evenly">
-        <button onClick={handleDeleteWithConfirmation} className="cursor-pointer">
-          <img src="delete.png" className="w-5 hover:scale-[110%] duration-200 active:scale-[100%]" alt="Delete" />
+      <div className="w-full h-full flex justify-evenly">
+
+        <button onClick={handleDeleteWithConfirmation} className="hover:scale-[110%] duration-200 cursor-pointer h-full w-[48%] flex justify-center items-center">
+          <img src="delete.png" className="w-5" alt="Delete" />
         </button>
-        <button onClick={handleEditClick} className="cursor-pointer">
-          <img src="pencil.png" className="w-5 hover:scale-[110%] duration-200" alt="Edit" />
+
+        <button onClick={handleEditClick} className="hover:scale-[110%] duration-200 cursor-pointer h-full w-[48%] flex justify-center items-center">
+          <img src="pencil.png" className="w-5 " alt="Edit" />
         </button>
       </div>
 

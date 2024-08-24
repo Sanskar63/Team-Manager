@@ -8,8 +8,9 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import PersonDetailsModal from './PersonDetailsModal';
+import ReactHookFormWithZod from '../form/Form';
 
 export default function BasicTable({ data, columns }) {
   const [sorting, setSorting] = useState([]);
@@ -39,6 +40,12 @@ export default function BasicTable({ data, columns }) {
   // Related to opening window
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [formWindow, setFormWindow] = useState(false);
+
+  // useEffect(()=>{
+  //   console.log(formWindow);
+  // },[formWindow])
+
   
   const handleRowClick = (person, e) => {
     if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'IMG') {
@@ -66,7 +73,7 @@ export default function BasicTable({ data, columns }) {
 
           <img src="filter.png" className='w-8 h-7' alt="" />
 
-          <button className='font-bold bg-purple-700 px-6 py-2 rounded-md text-white bg-purple'>+ ADD MEMBER</button>
+          <button onClick={()=>setFormWindow(true)} className='font-bold bg-purple-700 px-6 py-2 rounded-md text-white bg-purple'>+ ADD MEMBER</button>
         </div>
       </div>
 
@@ -153,6 +160,9 @@ export default function BasicTable({ data, columns }) {
         onClose={() => setIsOpen(false)}
         person={selectedPerson}
       />
+      {
+        formWindow && <ReactHookFormWithZod onClose={() => setFormWindow(false)} />
+      }
       
     </div>
   )

@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from "react";
 import { useForm, Controller, useFieldArray } from "react-hook-form";
 import { z } from "zod";
@@ -16,7 +17,7 @@ const formSchema = z.object({
     image: z.any().optional(),
 });
 
-const ReactHookFormWithZod = () => {
+const ReactHookFormWithZod = ({onClose}) => {
     const {
         register,
         handleSubmit,
@@ -72,14 +73,22 @@ const ReactHookFormWithZod = () => {
                     )}
 
                     <div className="flex gap-4">
-                        <label htmlFor="file-upload" className="text-blue-950 border border-blue-950 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded flex items-center">
-                            <img src="undo-arrow.png" className="w-5" alt="" />
-                            <span>Change Photo</span>
+                        <label htmlFor="file-upload" className="text-blue-950 border border-blue-950 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded flex items-center cursor-pointer">
+                            {imagePreview ? (<img src="undo-arrow.png" className="w-5" alt="" />) : ("")}
+                            {imagePreview ? (<span>Change Photo</span>) : (<span>Select Photo</span>)}
+
                         </label>
-                        <button type="button" className="text-blue-950 border border-blue-950 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded flex items-center" onClick={removeImage}>
-                            <img src="delete.png" className="w-5" alt="" />
-                            <span>Remove Photo</span>
-                        </button>
+
+                        {imagePreview ?
+                            (
+                                <button type="button" className="text-blue-950 border border-blue-950 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded flex items-center cursor-pointer" onClick={removeImage}>
+                                    <img src="delete.png" className="w-5" alt="" />
+                                    <span>Remove Photo</span>
+                                </button>
+                            )
+                            : ("")
+                        }
+
                     </div>
                     <input
                         type="file"
@@ -135,49 +144,52 @@ const ReactHookFormWithZod = () => {
                                 className="ml-2 text-purple hover:scale-[110%]"
                                 onClick={() => remove(index)}
                             >
-                                <img src="close.png" className="w-2" alt="" />
+                                <img src="/close.png" className="w-2" alt="" />
                             </button>
                         </div>
                     ))}
 
                     {/* Team Selector */}
                     <div className="absolute right-3">
-                        {/* <label className="block mb-2">Teams:</label> */}
                         <Controller
                             control={control}
                             name="teamsSelection"
                             render={({ field }) => (
-                                <select
-                                    {...field}
-                                    className="border-2 border-purple rounded-full  bg-white w-7 h-7"
-                                    onChange={(e) => {
-                                        const selectedTeam = e.target.value;
-                                        if (selectedTeam) {
-                                            append({ name: selectedTeam });
-                                        }
-                                        field.onChange(""); // Reset the select value
-                                    }}
-                                >
-                                    <option value=""></option>
-                                    <option value="Product">Product</option>
-                                    <option value="Marketing">Marketing</option>
-                                    <option value="Finance">Finance</option>
-                                    <option value="Design">Design</option>
-                                </select>
+                                <div className="relative inline-block">
+                                    <select
+                                        {...field}
+                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                        onChange={(e) => {
+                                            const selectedTeam = e.target.value;
+                                            if (selectedTeam) {
+                                                append({ name: selectedTeam });
+                                            }
+                                            field.onChange(""); // Reset the select value
+                                        }}
+                                    >
+                                        <option value=""></option>
+                                        <option value="Product">Product</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Finance">Finance</option>
+                                        <option value="Design">Design</option>
+                                    </select>
+                                    <span className="inline-block bg-[url('/dropdown.png')] bg-no-repeat bg-center bg-contain w-6 h-6 pointer-events-none"></span>
+                                </div>
                             )}
                         />
-                        {errors.teams && <p className="text-red-500 text-xs mt-1">{errors.teams.message}</p>}
                     </div>
+                    {errors.teams && <p className="text-red-500 text-xs mt-1">{errors.teams.message}</p>}
 
                 </div>
+
                 {/* Submit and Cancel Buttons */}
                 <div className="w-full flex flex-row-reverse gap-3">
-                    <button type="submit" className="text-blue-950 border border-gray-500 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded">
+                    <button type="submit" className="text-blue-950 border border-gray-500 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded curpo">
                         SAVE
                     </button>
-                    <button className="text-blue-950 border border-gray-500 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded">
+                    <div onClick={onClose} className="text-blue-950 border border-gray-500 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded cursor-pointer">
                         CANCEL
-                    </button>
+                    </div>
                 </div>
             </form>
         </div>

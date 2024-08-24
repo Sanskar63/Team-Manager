@@ -3,35 +3,41 @@ import mockData from '@/MOCK_DATA.json';
 import BasicTable from '@/components/table/Table';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import TableCellWithActions from '@/components/table/TableCellWithActions';
+import ReactHookFormWithZod from '@/components/form/Form';
 
 function Directory() {
     const [data, setData] = useState(mockData);
+    const [editWindow, setEditWindow] = useState(false);
 
     const handleDelete = (rowId) => {
         setData((prevData) => prevData.filter(row => row.id !== rowId));
     };
 
     const handleEdit = (rowId) => {
-        // Implement your edit logic here, possibly opening a modal or inline editing
+        // Editing logic goes here
         console.log('Edit row:', rowId);
+        setEditWindow(true);
     };
 
-    // /** @type import('@tanstack/react-table').ColumnDef<any> */
+    // useEffect(()=>{
+    //     console.log(editWindow);
+    // },[editWindow])
+
     const columns = [
         {
             header: 'Name',
             accessorFn: row => row.name,
             footer: 'Profile',
             cell: info => {
-                const { name, profilePicture, user_id } = info.row.original; // Adjust keys as per your data structure
+                const { name, profilePicture, user_id } = info.row.original;
                 return (
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <img
                             src={profilePicture}
                             alt={name}
-                            style={{ width: '40px', height: '40px', borderRadius: '50%', marginRight: '10px' }}
+                            className='w-8 h-8 md:w-12 md:h-12 rounded-full mr-2'
                         />
                         <div className='flex flex-col'>
                             <span className='text-black'>{name}</span>
@@ -90,11 +96,14 @@ function Directory() {
             cell: info => {
                 const rowId = info.row.original.id;
                 return (
-                    <TableCellWithActions
-                        rowId={rowId}
-                        handleDelete={handleDelete}
-                        handleEdit={handleEdit}
-                    />
+                    <div className=' h-[6vh] lg:h-[9vh] flex items-center'>
+
+                        <TableCellWithActions
+                            rowId={rowId}
+                            handleDelete={handleDelete}
+                            handleEdit={handleEdit}
+                        />
+                    </div>
                 );
             },
         },
@@ -110,6 +119,7 @@ function Directory() {
                     columns={columns}
                 />
             </div>
+            {editWindow && <ReactHookFormWithZod onClose={() => setEditWindow(false)} />}
         </>
     );
 }
