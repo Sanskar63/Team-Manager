@@ -34,7 +34,7 @@ const ReactHookFormWithZod = () => {
     });
 
     const [imagePreview, setImagePreview] = useState(null);
-    const image = watch('image');
+    const image = watch("image");
 
     const onSubmit = (data) => {
         console.log(data);
@@ -61,21 +61,24 @@ const ReactHookFormWithZod = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="w-[45%] rounded-lg p-4 lg:p-8 bg-white">
                 <span className="text-2xl font-bold">Edit Profile</span>
 
-                <div className="w-full flex flex-col items-center my-4">
+                {/* Image Upload Section */}
+                <div className="w-full flex flex-col gap-6 items-center my-4">
                     {imagePreview ? (
                         <img src={imagePreview} alt="Selected" className="w-32 h-32 rounded-full object-cover mb-2" />
                     ) : (
-                        <div className="w-32 h-32 rounded-full bg-green-200 flex items-center justify-center mb-2">
-                            <p className="text-sm text-gray-500">No Image</p>
+                        <div className="w-32 h-32 rounded-full bg-purple flex items-center justify-center mb-2">
+                            <p className="text-sm text-white font-bold">No Image</p>
                         </div>
                     )}
 
                     <div className="flex gap-4">
-                        <label htmlFor="file-upload" className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">
-                            Select Photo
+                        <label htmlFor="file-upload" className="text-blue-950 border border-blue-950 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded flex items-center">
+                            <img src="undo-arrow.png" className="w-5" alt="" />
+                            <span>Change Photo</span>
                         </label>
-                        <button type="button" className="bg-red-500 text-white px-4 py-2 rounded" onClick={removeImage}>
-                            Remove Photo
+                        <button type="button" className="text-blue-950 border border-blue-950 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded flex items-center" onClick={removeImage}>
+                            <img src="delete.png" className="w-5" alt="" />
+                            <span>Remove Photo</span>
                         </button>
                     </div>
                     <input
@@ -89,69 +92,93 @@ const ReactHookFormWithZod = () => {
                     {errors.image && <p className="text-red-500 text-xs mt-1">{errors.image.message}</p>}
                 </div>
 
-                <div>
-                    <label>Name:</label>
-                    <input {...register("name")} className="border rounded px-2 py-1 w-full" />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                {/* Name and Email Fields */}
+                <div className="flex justify-center mb-4">
+                    <div className="flex flex-col w-[50%]">
+                        <label>Name</label>
+                        <input {...register("name")} placeholder="Name" className="border border-gray-500 border-b-2 border-b-black text-gray-700 rounded px-2 py-1 w-[98%] h-11 " />
+                        {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
+                    </div>
+
+                    <div className="flex flex-col w-[50%] ">
+                        <label>Email</label>
+                        <input {...register("email")} placeholder="abc@gmail.com" className="border border-gray-500 border-b-2 border-b-black text-gray-700  rounded px-2 py-1 w-[98%] h-11" />
+                        {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                    </div>
                 </div>
 
-                <div>
-                    <label>Email:</label>
-                    <input {...register("email")} className="border rounded px-2 py-1 w-full" />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
+                {/* Role and Status Fields */}
+                <div className="flex justify-center mb-4">
+                    <div className="flex flex-col w-[50%]">
+                        <label>Role:</label>
+                        <input {...register("role")} placeholder="Role" className="border border-gray-500 border-b-2 border-b-black text-gray-700  rounded px-2 py-1 w-[98%] h-11" />
+                        {errors.role && <p className="text-red-500 text-xs mt-1">{errors.role.message}</p>}
+                    </div>
+
+                    <div className="flex flex-col w-[50%] ">
+                        <label>Status:</label>
+                        <select {...register("status")} className="border border-gray-500 border-b-2 border-b-black bg-white text-gray-700 rounded px-2 py-1 w-[98%] h-11">
+                            <option value="Active">Active</option>
+                            <option value="Not Active">Not Active</option>
+                        </select>
+                        {errors.status && <p className="text-red-500 text-xs mt-1">{errors.status.message}</p>}
+                    </div>
                 </div>
 
-                <div>
-                    <label>Role:</label>
-                    <input {...register("role")} className="border rounded px-2 py-1 w-full" />
-                    {errors.role && <p className="text-red-500 text-xs mt-1">{errors.role.message}</p>}
-                </div>
-
-                <div>
-                    <label>Status:</label>
-                    <select {...register("status")} className="border rounded px-2 py-1 w-full">
-                        <option value="">Select Status</option>
-                        <option value="Active">Active</option>
-                        <option value="Not Active">Not Active</option>
-                    </select>
-                    {errors.status && <p className="text-red-500 text-xs mt-1">{errors.status.message}</p>}
-                </div>
-
-                <div>
-                    <label>Teams:</label>
+                {/* Selected Teams Tags */}
+                <div className=" p-2 pr-6 min-h-11 mb-4 flex flex-wrap gap-3 items-center border border-gray-500 border-b-2 border-b-black rounded relative">
                     {fields.map((field, index) => (
-                        <div key={field.id} className="flex gap-2 items-center">
-                            <Controller
-                                control={control}
-                                name={`teams.${index}.name`}
-                                render={({ field }) => (
-                                    <select {...field} className="border rounded px-2 py-1 w-full">
-                                        <option value="">Select Team</option>
-                                        <option value="Product">Product</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Finance">Finance</option>
-                                        <option value="Design">Design</option>
-                                    </select>
-                                )}
-                            />
+                        <div key={field.id} className="flex items-center text-purple px-3 py-1 border border-gray-300 rounded-lg">
+                            <span>{field.name}</span>
                             <button
                                 type="button"
-                                className="bg-red-500 text-white px-2 py-1 rounded"
+                                className="ml-2 text-purple hover:scale-[110%]"
                                 onClick={() => remove(index)}
                             >
-                                Remove
+                                <img src="close.png" className="w-2" alt="" />
                             </button>
                         </div>
                     ))}
-                    <button type="button" onClick={() => append({ name: "" })} className="mt-2 bg-blue-500 text-white px-4 py-2 rounded">
-                        Add Team
-                    </button>
-                    {errors.teams && <p className="text-red-500 text-xs mt-1">{errors.teams.message}</p>}
-                </div>
 
-                <button type="submit" className="mt-4 bg-purple-600 text-white px-4 py-2 rounded">
-                    Submit
-                </button>
+                    {/* Team Selector */}
+                    <div className="absolute right-3">
+                        {/* <label className="block mb-2">Teams:</label> */}
+                        <Controller
+                            control={control}
+                            name="teamsSelection"
+                            render={({ field }) => (
+                                <select
+                                    {...field}
+                                    className="border-2 border-purple rounded-full  bg-white w-7 h-7"
+                                    onChange={(e) => {
+                                        const selectedTeam = e.target.value;
+                                        if (selectedTeam) {
+                                            append({ name: selectedTeam });
+                                        }
+                                        field.onChange(""); // Reset the select value
+                                    }}
+                                >
+                                    <option value=""></option>
+                                    <option value="Product">Product</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Design">Design</option>
+                                </select>
+                            )}
+                        />
+                        {errors.teams && <p className="text-red-500 text-xs mt-1">{errors.teams.message}</p>}
+                    </div>
+
+                </div>
+                {/* Submit and Cancel Buttons */}
+                <div className="w-full flex flex-row-reverse gap-3">
+                    <button type="submit" className="text-blue-950 border border-gray-500 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded">
+                        SAVE
+                    </button>
+                    <button className="text-blue-950 border border-gray-500 font-bold gap-2 active:scale-[98%] px-4 py-2 rounded">
+                        CANCEL
+                    </button>
+                </div>
             </form>
         </div>
     );
