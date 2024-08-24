@@ -65,10 +65,10 @@ export default function BasicTable({ data, columns }) {
             className='border border-gray-300 rounded-md px-2 h-[5vh]'
           />
 
-          <button>
-            {/* Filter Logic goes here */}
+          {/* <button>
+            Filter Logic goes here
             <img src="filter.png" className='w-8 h-7' alt="Filter" />
-          </button>
+          </button> */}
 
           <button onClick={() => setFormWindow(true)} className='font-bold bg-purple px-6 py-2 rounded-md text-white'>
             + ADD MEMBER
